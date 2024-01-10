@@ -16,6 +16,21 @@ func sub(x int, y int) (int, int) {
 	return x + y, 3
 }
 
+type Shoe struct {
+	size  int32
+	brand string
+	ctype string
+}
+
+type Inventory_Crocs struct {
+	Shoe
+	pices int
+}
+
+func addInventory(shoe Shoe, owner string) string {
+	return shoe.brand
+}
+
 func divide(dividend, divisor int) (int, error) {
 	if divisor == 0 {
 		return 0, errors.New("Can't divide by zero")
@@ -24,17 +39,17 @@ func divide(dividend, divisor int) (int, error) {
 }
 
 type car struct {
-	Make string
-	Model string
+	Make   string
+	Model  string
 	Height int
-	Width int
+	Width  int
 	// Wheel is a field containing an anonymous struct
 	Wheel struct {
-	  Radius int
-	  Material string
+		Radius   int
+		Material string
 	}
-  }
-  
+}
 
 func getCarMode(carObj car) string {
 	return carObj.Model
+}
