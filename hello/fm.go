@@ -53,3 +53,12 @@ type car struct {
 func getCarMode(carObj car) string {
 	return carObj.Model
 }
+
+type rect struct {
+	length  int
+	breadth int
+}
+
+func (r rect) area() int {
+	return r.length * r.breadth
+}
