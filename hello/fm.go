@@ -10,6 +10,7 @@ func main() {
 	x, _ := sub(1, 2)
 	fmt.Println(x)
 	fmt.Println(sub(1, 4))
+	zen()
 }
 
 func sub(x int, y int) (int, int) {
@@ -61,4 +62,28 @@ type rect struct {
 
 func (r rect) area() int {
 	return r.length * r.breadth
+}
+
+// Type Casting in GO
+
+func printNumericValue(num interface{}) {
+	switch v := num.(type) {
+	case int:
+		fmt.Printf("%T\n", v)
+	case string:
+		fmt.Printf("%T\n", v)
+	default:
+		fmt.Printf("%T\n", v)
+	}
+}
+
+func zen() {
+	printNumericValue(1)
+	// prints "int"
+
+	printNumericValue("1")
+	// prints "string"
+
+	printNumericValue(struct{}{})
+	// prints "struct {}"
 }
