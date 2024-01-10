@@ -3,6 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
+	"os"
+	"strconv"
 )
 
 func main() {
@@ -11,6 +13,7 @@ func main() {
 	fmt.Println(x)
 	fmt.Println(sub(1, 4))
 	zen()
+	throwErros()
 }
 
 func sub(x int, y int) (int, int) {
@@ -86,4 +89,26 @@ func zen() {
 
 	printNumericValue(struct{}{})
 	// prints "struct {}"
+}
+
+// Interfaces are not classes, they are slimmer.
+// Interfaces don’t have constructors or deconstructors that require that data is created or destroyed.
+// Interfaces aren’t hierarchical by nature, though there is syntactic sugar to create interfaces that happen to be supersets of other interfaces.
+// Interfaces define function signatures, but not underlying behavior. Making an interface often won’t DRY up your code in regards to struct methods. For example,
+// if five types satisfy the fmt.Stringer interface, they all need their own version of the String() function.
+
+//ERRORS IN GO
+
+func throwErros() {
+	i, err := strconv.Atoi("42b")
+	for i := 0; i < 10; i++ {
+		fmt.Fprintln(os.Stdout, []any{"heyy %c", i}...)
+	}
+	var zerr error = errors.New("something went wrong")
+	fmt.Println(zerr)
+	if err != nil {
+		fmt.Println("couldn't convert:", err)
+		fmt.Println(i)
+		return
+	}
 }
