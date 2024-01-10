@@ -14,6 +14,7 @@ func main() {
 	fmt.Println(sub(1, 4))
 	zen()
 	throwErros()
+	breakMeContinueThereAfter()
 }
 
 func sub(x int, y int) (int, int) {
@@ -101,14 +102,29 @@ func zen() {
 
 func throwErros() {
 	i, err := strconv.Atoi("42b")
-	for i := 0; i < 10; i++ {
-		fmt.Fprintln(os.Stdout, []any{"heyy %c", i}...)
-	}
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Fprintln(os.Stdout, []any{"heyy %c", i}...)
+	// }
 	var zerr error = errors.New("something went wrong")
 	fmt.Println(zerr)
 	if err != nil {
 		fmt.Println("couldn't convert:", err)
 		fmt.Println(i)
 		return
+	}
+}
+
+func breakMeContinueThereAfter() {
+	j := 12
+	for j < 20 {
+		if j == 15 {
+			break
+		}
+		// if j == 13 {
+		// 	j++
+		// 	continue
+		// }
+		fmt.Fprintln(os.Stdout, []any{"heyy %c", j}...)
+		j++
 	}
 }
